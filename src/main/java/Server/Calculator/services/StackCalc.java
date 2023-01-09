@@ -17,6 +17,7 @@ public class StackCalc {
 
     private Stack<Integer> stack= new Stack<>();
     private final Calculator calculator= new Calculator();
+    private List<Integer> argToOp= new ArrayList<>();
 
 
     public int addArguments(int[] arg) {
@@ -36,11 +37,10 @@ public class StackCalc {
                     + numOfArgToOp + ErrorMessege.CONTINUE2 + stack.size() + ErrorMessege.CONTINUE3);
         }
 
-        List<Integer> arg = new ArrayList<>();
         for (int i=0; i<numOfArgToOp; i++ )
-            arg.add(stack.pop());
+            argToOp.add(stack.pop());
 
-        int result = calculator.operationExecute(operation,arg);
+        int result = calculator.operationExecute(operation,argToOp);
         return result;
     }
 
